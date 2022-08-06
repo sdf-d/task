@@ -22,14 +22,6 @@ function getMinRep(num) {
 }
 
 function withMinMaxReps(groupedCountries) {
-    // var retObj = []
-    // Object.keys(groupedCountries).forEach((region) => {
-    //     retObj.push({...item, minSalesReq: getMinRep(item.length), maxSalesReq: getMaxRep(item.length)})
-    // }
-    // Object.entries(groupedCountries).map((item) => {
-    //     return {...item, minSalesReq: getMinRep(item.length), maxSalesReq: getMaxRep(item.length)}
-    // })
-
     return Object.values(Object.fromEntries(Object.entries(groupedCountries).map(
         ([k,v]) => [k, {region: k, minSalesReq: getMinRep(v.length), maxSalesReq: getMaxRep(v.length)}])
     ))
@@ -53,8 +45,8 @@ function solveProblem2 (data) {
         var minRepNum = getMinRep(countries.length)
         var repPerCountry = Math.floor(countries.length / minRepNum)
         var leftOutRepNum = countries.length % repPerCountry
-        // var regionReps = []
         var countriesIndex = 0
+
         for(var i=0; i<minRepNum; i++) {
             var rep = {}
             rep.region = region
@@ -64,11 +56,12 @@ function solveProblem2 (data) {
                 countryCount += 1
             }
             rep.countryList = countries.slice(countriesIndex, countriesIndex + countryCount)
+            countriesIndex += countryCount
             rep.countryCount = countryCount
             reps.push(rep);
         }
     })
-    console.log(utils.prettyPrint(reps))
+    // console.log(utils.prettyPrint(reps))
     return reps
 }
 

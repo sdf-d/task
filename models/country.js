@@ -1,9 +1,5 @@
-// require('dotenv').config()
 const mongoose = require('mongoose')
 
-// function toUpper (v) {
-//     return v.toUpperCase();
-// }
 
 const countrySchema = new mongoose.Schema({
     name : {
