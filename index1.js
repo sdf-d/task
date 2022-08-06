@@ -30,6 +30,8 @@ const countriesRouter = require('./routes/countries')
 app.use('/countries', countriesRouter)
 const salesrepRouter = require('./routes/salesrep')
 app.use('/salesrep', salesrepRouter)
+const optimalRouter = require('./routes/optimal')
+app.use('/optimal', optimalRouter)
 const testRouter = require('./routes/test')
 app.use('/test', testRouter)
 

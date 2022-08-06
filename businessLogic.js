@@ -41,7 +41,7 @@ function solveProblem1 (data) {
     var groupedCountries = getGroupedCountries(data)
     var solvedGroupedCountries = withMinMaxReps(groupedCountries)
     console.log(utils.prettyPrint(solvedGroupedCountries))
-    return groupedCountries
+    return solvedGroupedCountries
 }
 
 function solveProblem2 (data) {
@@ -54,14 +54,21 @@ function solveProblem2 (data) {
         var repPerCountry = Math.floor(countries.length / minRepNum)
         var leftOutRepNum = countries.length % repPerCountry
         // var regionReps = []
+        var countriesIndex = 0
         for(var i=0; i<minRepNum; i++) {
             var rep = {}
             rep.region = region
-            rep.countryList = []
-            rep.countryCount = rep.countryList.length
+            countryCount = repPerCountry
+            if (leftOutRepNum > 0) {
+                leftOutRepNum -= 1
+                countryCount += 1
+            }
+            rep.countryList = countries.slice(countriesIndex, countriesIndex + countryCount)
+            rep.countryCount = countryCount
             reps.push(rep);
         }
     })
+    console.log(utils.prettyPrint(reps))
     return reps
 }
 
