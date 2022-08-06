@@ -1,1 +1,7 @@
+GET http://localhost:3000/countries
+###
 GET http://localhost:3000/countries?region=MEA
+###
+GET http://localhost:3000/salesrep
+###
+GET http://localhost:3000/optimal
