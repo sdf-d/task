@@ -4,14 +4,6 @@ const path = require('path')
 
 
 
-// axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
-//   .then(response => {
-//     console.log(response.data.url);
-//     console.log(response.data.explanation);
-//   })
-//   .catch(error => {
-//     console.log(error);
-//   });
 
 
 const mongoose = require('mongoose')
@@ -22,7 +14,6 @@ console.log("mongo successful")
 
 var app = express()
 
-// app.use(express.json())
 
 
 
@@ -32,27 +23,19 @@ const salesrepRouter = require('./routes/salesrep')
 app.use('/salesrep', salesrepRouter)
 const optimalRouter = require('./routes/optimal')
 app.use('/optimal', optimalRouter)
-const testRouter = require('./routes/test')
-app.use('/test', testRouter)
+// const testRouter = require('./routes/test')
+// app.use('/test', testRouter)
 
 
 
 
 
-app.get('/', (req,res) => {
-    console.log("hellooo")
-    resstring = req.query.region  !== undefined ? `<h2>Welcomeeeeeeeee ` + req.query.region + `</h2>` : `<h2>Welcomeeeeeeeee</h2>`
-    res.send(resstring)
-})
+// app.get('/', (req,res) => {
+//     console.log("hellooo")
+//     resstring = req.query.region  !== undefined ? `<h2>Welcomeeeeeeeee ` + req.query.region + `</h2>` : `<h2>Welcomeeeeeeeee</h2>`
+//     res.send(resstring)
+// })
 
-
-
-
-
-
-
-// const Sale = require('./models/sale')
-// const Country = require('./models/country')
 
 
 
@@ -72,7 +55,6 @@ app.get('/', (req,res) => {
 
 // task()
 
-console.log("here 1")
 
 
 // app.listen(3000, () => {
@@ -92,4 +74,3 @@ app.listen(3000, () => {
     console.log("Server at 3000!")
 })
 
-console.log("here 2")

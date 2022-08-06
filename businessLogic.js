@@ -29,10 +29,9 @@ function withMinMaxReps(groupedCountries) {
 
 
 function solveProblem1 (data) {
-    // console.log(utils.prettyPrint(data))
     var groupedCountries = getGroupedCountries(data)
     var solvedGroupedCountries = withMinMaxReps(groupedCountries)
-    console.log(utils.prettyPrint(solvedGroupedCountries))
+    // console.log(utils.prettyPrint(solvedGroupedCountries))
     return solvedGroupedCountries
 }
 
@@ -61,7 +60,6 @@ function solveProblem2 (data) {
             reps.push(rep);
         }
     })
-    // console.log(utils.prettyPrint(reps))
     return reps
 }
 
