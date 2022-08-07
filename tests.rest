@@ -9,3 +9,9 @@ GET http://localhost:3000/countries?region=234
 GET http://localhost:3000/salesrep
 ###
 GET http://localhost:3000/optimal
+###
+POST http://localhost:3000/countries
+###
+GET http://localhost:3000/
+###
+GET http://localhost:3000/dfgdfgdh
