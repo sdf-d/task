@@ -1,10 +1,6 @@
 require('dotenv').config()
 const express = require('express')
-
 const mongoose = require('mongoose')
-mongoose.connect(process.env.MONGO_URL)
-const db = mongoose.connection
-console.log("mongo successful")
 
 
 var app = express()
@@ -19,7 +15,11 @@ app.use('/optimal', optimalRouter)
 
 
 
-app.listen(3000, () => {
-    console.log("Server at 3000!")
+mongoose.connect(process.env.MONGO_URL).then((x) => {
+    console.log(`Connected to MongoDB: "${x.connections[0].name}"`)
+    app.listen(3000, () => {
+        console.log("Server at 3000!")
+    })
+}).catch((err) => {
+    console.error('MongoDB error!\n', err)
 })
-
