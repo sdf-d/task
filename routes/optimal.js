@@ -7,7 +7,7 @@ const utils = require('../utils')
 
 router.get('/', async (req, res) => {
     try {
-        console.log("salesrep endpoint called")
+        console.log("optimal endpoint called")
         const result = await axios.get('http://localhost:3000/countries')
         var data = result.data
         var solvedData = businessLogic.solveProblem2(data)
