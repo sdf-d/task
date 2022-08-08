@@ -23,3 +23,5 @@ mongoose.connect(process.env.MONGO_URL).then((x) => {
 }).catch((err) => {
     console.error('MongoDB error!\n', err)
 })
+
+module.exports = app

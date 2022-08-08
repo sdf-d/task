@@ -1,7 +1,11 @@
 var assert = require('assert');
 var chai = require('chai')
-var expect = chai.expect
+let chaiHttp = require('chai-http');
 var businessLogic = require('../businessLogic')
+var server = require('../server')
+
+chai.use(chaiHttp);
+
 
 testCountries0_0 = [
     {
@@ -40,7 +44,7 @@ testSolutions1_0 = [
 describe('SolveProblem0', function () {
     describe('#Test0', function () {
         it('should be 1,1', function () {
-            expect(businessLogic.solveProblem1(testCountries0_0)).to.deep.equal(testSolutions0_0);
+            chai.expect(businessLogic.solveProblem1(testCountries0_0)).to.deep.equal(testSolutions0_0);
         });
 
     });
@@ -48,9 +52,22 @@ describe('SolveProblem0', function () {
 
 describe('SolveProblem1', function () {
     describe('#Test0', function () {
-        it('c0, c1, c2', function () {
-            expect(businessLogic.solveProblem2(testCountries0_0)).to.deep.equal(testSolutions1_0);
+        it('should be equal', function () {
+            chai.expect(businessLogic.solveProblem2(testCountries0_0)).to.deep.equal(testSolutions1_0);
         });
 
+    });
+});
+
+
+describe('/GET countries', () => {
+    it('it should GET all the countries in db', (done) => {
+      chai.request(server)
+          .get('/countries')
+          .end((err, res) => {
+                chai.expect(res).to.have.status(200);
+                chai.expect(res.body).to.be.a('array');
+            done();
+          });
     });
 });
