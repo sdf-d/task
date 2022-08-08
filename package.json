@@ -6,14 +6,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "devStart": "nodemon --delay 2000ms server.js"
+    "devStart": "nodemon --delay 2000ms server.js",
+    "test": "mocha"
+
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
+    "chai": "^4.3.6",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "mocha": "^10.0.0",
     "mongoose": "^6.5.1"
   }
 }
